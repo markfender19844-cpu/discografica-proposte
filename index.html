@@ -143,6 +143,31 @@
     .footer-home .arrow { width: 15px; height: 15px; }
     .footer-home:hover { color: var(--red); }
 
+
+    .project-actions { display:flex; flex-wrap:wrap; align-items:center; gap:18px 28px; margin-top:35px; }
+    .project-actions .project-link { margin-top:0; }
+    .interest-button { appearance:none; border:1px solid currentColor; background:transparent; color:inherit; min-height:52px; padding:0 22px; font:700 12px/1 var(--sans); letter-spacing:.04em; text-transform:uppercase; cursor:pointer; }
+    .interest-button:hover { transform:translateY(-1px); }
+    body.modal-open { overflow:hidden; }
+    .interest-modal[hidden] { display:none; }
+    .interest-modal { position:fixed; inset:0; z-index:100; display:grid; place-items:center; padding:22px; }
+    .modal-backdrop { position:absolute; inset:0; background:rgba(10,10,10,.72); backdrop-filter:blur(4px); }
+    .modal-panel { position:relative; z-index:1; width:min(620px,100%); max-height:calc(100vh - 44px); overflow:auto; background:var(--paper); color:var(--ink); border:1px solid var(--ink); padding:clamp(26px,4vw,44px); }
+    .modal-close { position:absolute; top:15px; right:15px; width:42px; height:42px; border:1px solid var(--line); background:transparent; font-size:26px; cursor:pointer; }
+    .modal-kicker { margin-bottom:16px; color:var(--red); }
+    .modal-panel h2 { padding-right:48px; font-size:clamp(34px,6vw,58px); line-height:.95; letter-spacing:-.055em; }
+    .modal-intro { margin-top:18px; color:var(--muted); font-size:14px; line-height:1.55; }
+    .interest-form { margin-top:30px; display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+    .field { display:grid; gap:7px; }
+    .field.full { grid-column:1/-1; }
+    .field label { font:10px/1.4 var(--mono); letter-spacing:.08em; text-transform:uppercase; }
+    .field input,.field textarea { width:100%; border:0; border-bottom:1px solid var(--ink); padding:12px 0; background:transparent; color:var(--ink); font:16px/1.35 var(--sans); }
+    .field textarea { min-height:86px; resize:vertical; }
+    .privacy-row { grid-column:1/-1; display:flex; align-items:flex-start; gap:10px; color:var(--muted); font-size:12px; line-height:1.45; }
+    .submit-interest { grid-column:1/-1; min-height:56px; border:0; background:var(--ink); color:var(--paper); font:700 12px/1 var(--sans); text-transform:uppercase; cursor:pointer; }
+    .form-note { grid-column:1/-1; min-height:20px; color:var(--muted); font-size:12px; line-height:1.45; }
+    .form-note.error { color:#9b2415; }
+
     /* 05. Responsive layout. */
     @media (min-width: 1600px) { .hero h1 { font-size: 221px; } }
     @media (max-width: 1000px) {
@@ -286,7 +311,10 @@
               <h2 class="project-title" id="numa-title">NUMA</h2>
               <p class="project-domain">numanumeriacaso.it</p>
             </div>
-            <a class="project-link" href="https://numanumeriacaso.it/" target="_blank" rel="noopener noreferrer">Scopri NUMA<span class="sr-only"> (si apre in una nuova scheda)</span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg></a>
+            <div class="project-actions">
+              <a class="project-link" href="https://numanumeriacaso.it/" target="_blank" rel="noopener noreferrer">Scopri NUMA<span class="sr-only"> (si apre in una nuova scheda)</span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg></a>
+              <button class="interest-button" type="button" data-artist="NUMA">Mi interessa</button>
+            </div>
           </div>
           <div class="artwork" aria-hidden="true">
             <span class="art-corner top-left">DR / 01</span><span class="art-corner top-right">NUMA</span>
@@ -311,7 +339,10 @@
               <h2 class="project-title long" id="quattordici-title">QUATTORDICI</h2>
               <p class="project-domain">quattordici.wtf</p>
             </div>
-            <a class="project-link" href="https://quattordici.wtf/" target="_blank" rel="noopener noreferrer">Scopri Quattordici<span class="sr-only"> (si apre in una nuova scheda)</span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg></a>
+            <div class="project-actions">
+              <a class="project-link" href="https://quattordici.wtf/" target="_blank" rel="noopener noreferrer">Scopri Quattordici<span class="sr-only"> (si apre in una nuova scheda)</span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg></a>
+              <button class="interest-button" type="button" data-artist="QUATTORDICI">Mi interessa</button>
+            </div>
           </div>
           <div class="artwork" aria-hidden="true">
             <span class="art-corner top-left">DR / 02</span><span class="art-corner top-right">QUATTORDICI</span>
@@ -335,7 +366,10 @@
               <h2 class="project-title two-lines" id="marco-title">MARCO<br>RUSSO</h2>
               <p class="project-domain">marcorussomusic.it</p>
             </div>
-            <a class="project-link" href="https://marcorussomusic.it/presskit/" target="_blank" rel="noopener noreferrer">Scopri Marco Russo<span class="sr-only"> di Marco Russo (si apre in una nuova scheda)</span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg></a>
+            <div class="project-actions">
+              <a class="project-link" href="https://marcorussomusic.it/presskit/" target="_blank" rel="noopener noreferrer">Scopri Marco Russo<span class="sr-only"> (si apre in una nuova scheda)</span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg></a>
+              <button class="interest-button" type="button" data-artist="MARCO RUSSO">Mi interessa</button>
+            </div>
           </div>
           <div class="artwork" aria-hidden="true">
             <span class="art-corner top-left">DR / 03</span><span class="art-corner top-right">MARCO RUSSO</span>
