@@ -76,10 +76,10 @@
     .index-link:last-child .arrow { margin-right: 0; }
     .index-link:hover { color: var(--red); }
 
-    /* 03. Three full-width artist sections. The artworks are decorative
-       studies, not official artist logos or photos. */
+    /* 03. Shared artist layout: text and actions on the left, an uncropped
+       photograph on the right. The same frame and spacing apply to every artist. */
     .project { position: relative; overflow: hidden; scroll-margin-top: 0; }
-    .project-grid { min-height: 560px; display: grid; grid-template-columns: 1fr 1fr; }
+    .project-grid { min-height: 640px; display: grid; grid-template-columns: 1fr 1fr; }
     .project-info { display: flex; flex-direction: column; align-items: flex-start; padding: 43px 44px 45px 0; z-index: 2; }
     .project-meta { display: flex; gap: 24px; align-items: center; }
     .project-meta .section-no { color: inherit; }
@@ -94,59 +94,14 @@
     .project-link .arrow { transition: transform .2s; }
     .project-link:hover .arrow { transform: translate(4px, -4px); }
     .project-link:hover { opacity: .8; }
-    .artwork { position: relative; min-width: 0; align-self: stretch; display: flex; align-items: center; justify-content: center; margin: 38px 0; overflow: hidden; isolation: isolate; border: 1px solid var(--art-border); }
-    .art-corner { position: absolute; z-index: 3; font: 10px/1 var(--mono); letter-spacing: .12em; }
-    .art-corner.top-left { left: 22px; top: 22px; }
-    .art-corner.top-right { right: 22px; top: 22px; }
-    .art-corner.bottom-left { left: 22px; bottom: 22px; }
-    .art-corner.bottom-right { right: 22px; bottom: 22px; }
-    .art-svg { width: 100%; height: 100%; position: absolute; inset: 0; }
+    .artwork { position: relative; min-width: 0; align-self: stretch; display: flex; align-items: center; justify-content: center; margin: 38px 0; overflow: hidden; }
+    .project-photo { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: contain; }
 
-    /* NUMA */
-    .numa { background: #20251f; color: #f1eee7; --art-border: #5a6152; }
-    .numa .project-link:focus-visible, .marco .project-link:focus-visible { outline-color: #f1eee7; }
-    .numa .artwork { background: #b6bf9c; color: #20251f; }
-    .numa-type { z-index: 2; font-weight: 800; font-size: clamp(230px, 28vw, 426px); line-height: 1; letter-spacing: -.115em; margin-left: -.04em; margin-top: -12px; transform: rotate(-8deg); }
-    .numa .art-disc { fill: none; stroke: #414b34; opacity: .48; }
-    .numa .art-orbit { fill: none; stroke: #f6f5ed; stroke-width: 1; opacity: .72; }
-    .art-small-disc { position: absolute; width: 18px; height: 18px; background: #20251f; right: 36px; top: 50%; border-radius: 50%; }
-
-    /* QUATTORDICI */
+    /* Each photograph keeps its own proportions; none is enlarged into a background. */
+    .numa { background: #171b16; color: #f1eee7; }
     .quattordici { background: #211521; color: #f1eee7; }
-    .quattordici .project-link:focus-visible { outline-color: #f1eee7; }
-    .quattordici .artwork { background: transparent; border: 0; }
-    .quattordici-photo { display: block; width: 100%; height: auto; max-width: 567px; max-height: 640px; object-fit: contain; }
-    .quattordici .project-domain, .quattordici .category, .quattordici .project-link:hover { opacity: 1; }
-
-    /* MARCO RUSSO */
-    .marco { background: #212124; color: #f1eee7; --art-border: #575657; }
-    .marco .artwork { color: #f1eee7; background: #302e32; }
-    .marco .art-svg { color: #b5a4a3; }
-    .marco-type { display: flex; gap: 0; transform: rotate(-8deg); font-weight: 800; font-size: clamp(170px, 18.8vw, 285px); letter-spacing: -.15em; line-height: .85; margin-left: -.08em; z-index: 2; }
-    .marco-type span:first-child { transform: translateY(-28px); }
-    .marco-type span:last-child { transform: translateY(34px); color: #c9a194; }
-
-
-    /* Foto diffuse dietro ogni scheda artista. */
-    .project {
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-    }
-    .numa {
-      background-image:
-        linear-gradient(rgba(32,37,31,.78), rgba(32,37,31,.78)),
-        url("https://static.wixstatic.com/media/ec212d_d82dc4fc05374e838603897c9ad6c7d3~mv2.jpg/v1/fill/w_857%2Ch_545%2Cal_c%2Cq_85%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/N%C3%B9ma%20%26%20I%20Numeri%20a%20Caso_1.jpg");
-      background-position: 58% 38%;
-    }
-    .marco {
-      background-image:
-        linear-gradient(rgba(26,26,29,.77), rgba(26,26,29,.77)),
-        url("https://primaveradeiteatri.it/primavera/wp-content/uploads/2026/05/Marco-Russo.jpg");
-      background-position: 60% 30%;
-    }
-    .quattordici .project-domain,
-    .quattordici .category { color: inherit; }
+    .marco { background: #152725; color: #f1eee7; }
+    .project a:focus-visible, .project button:focus-visible { outline-color: #f1eee7; }
 
     /* 04. Closing navigation: no submissions or contact forms. */
     .closing { padding: 64px 0 54px; }
@@ -234,10 +189,10 @@
       white-space: nowrap;
     }
     .canvas-card p:not(.canvas-tag) { margin-top: 10px; max-width: 28ch; font-size: 12px; line-height: 1.4; color: rgba(255,255,255,.86); }
-    .canvas-numa { background-image: url("https://static.wixstatic.com/media/ec212d_d82dc4fc05374e838603897c9ad6c7d3~mv2.jpg/v1/fill/w_857%2Ch_545%2Cal_c%2Cq_85%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/N%C3%B9ma%20%26%20I%20Numeri%20a%20Caso_1.jpg"); background-size: cover; background-position: 50% 50%; }
+    .canvas-numa { background-image: url("./numa-foto.jpg"); background-size: cover; background-position: 50% 50%; }
     .canvas-quattordici { background-image: url("./quattordici-originale.jpg"); background-size: cover; background-position: center 52%; background-repeat: no-repeat; }
     .canvas-quattordici::before { display: none; }
-    .canvas-marco { background-image: url("https://primaveradeiteatri.it/primavera/wp-content/uploads/2026/05/Marco-Russo.jpg"); background-size: cover; background-position: center 34%; }
+    .canvas-marco { background-image: url("./marco-russo-foto.jpg"); background-size: cover; background-position: center 34%; }
     .hero-editorial .project-index { grid-column: 1 / -1; margin-top: 28px; }
 
     @media (max-width: 900px) {
@@ -265,7 +220,7 @@
     @media (min-width: 1600px) { .hero h1 { font-size: 221px; } }
     @media (max-width: 1000px) {
       .header-row { height: 78px; }
-      .project-grid { min-height: 484px; }
+      .project-grid { min-height: 560px; }
       .project-info { padding-right: 28px; }
       .project-heading { padding-top: 60px; }
       .artwork { margin-block: 28px; }
@@ -310,15 +265,8 @@
       .project-title.two-lines { font-size: clamp(58px, 16vw, 104px); }
       .project-domain { font-size: 11px; margin-top: 17px; }
       .project-link { margin-top: 15px; font-size: 12px; min-width: 210px; gap: 55px; padding-block: 13px; }
-      .artwork { margin: 30px 0 0; aspect-ratio: 1.12; width: 100%; }
-      .numa-type { font-size: clamp(250px, 68vw, 440px); }
-      .quattordici .artwork { aspect-ratio: auto; }
-      .marco-type { font-size: clamp(193px, 48vw, 350px); }
-      .art-corner { font-size: 9px; }
-      .art-corner.top-left { left: 15px; top: 16px; }
-      .art-corner.top-right { right: 15px; top: 16px; }
-      .art-corner.bottom-left { left: 15px; bottom: 16px; }
-      .art-corner.bottom-right { right: 15px; bottom: 16px; }
+      .artwork { margin: 30px 0 0; width: 100%; }
+      .project-photo { position: static; width: 100%; height: auto; max-height: 540px; }
       .closing { padding: 40px 0 32px; }
       .closing-row { grid-template-columns: 1fr; gap: 24px; }
       .closing h2 { font-size: 32px; }
@@ -444,16 +392,8 @@
               <button class="interest-button" type="button" data-artist="NUMA">Mi interessa</button>
             </div>
           </div>
-          <div class="artwork" aria-hidden="true">
-            <span class="art-corner top-left">DR / 01</span><span class="art-corner top-right">NUMA</span>
-            <svg class="art-svg" viewBox="0 0 600 500" preserveAspectRatio="xMidYMid slice" focusable="false">
-              <g class="art-disc" stroke-width="1">
-                <circle cx="290" cy="250" r="225"/><circle cx="290" cy="250" r="211"/><circle cx="290" cy="250" r="197"/><circle cx="290" cy="250" r="183"/><circle cx="290" cy="250" r="169"/><circle cx="290" cy="250" r="155"/><circle cx="290" cy="250" r="141"/><circle cx="290" cy="250" r="127"/><circle cx="290" cy="250" r="113"/><circle cx="290" cy="250" r="99"/><circle cx="290" cy="250" r="85"/>
-              </g>
-              <g class="art-orbit" transform="rotate(-28 300 250)"><ellipse cx="300" cy="250" rx="340" ry="118"/><ellipse cx="300" cy="250" rx="340" ry="129"/><ellipse cx="300" cy="250" rx="340" ry="140"/></g>
-            </svg>
-            <span class="numa-type">N</span><span class="art-small-disc"></span>
-            <span class="art-corner bottom-left">DISCOGRAFICA ROMANA</span><span class="art-corner bottom-right">01</span>
+          <div class="artwork">
+            <img class="project-photo" src="./numa-foto.jpg" alt="NUMA, fotografia del gruppo" width="1600" height="1068" loading="lazy" decoding="async">
           </div>
         </div>
       </section>
@@ -473,7 +413,7 @@
             </div>
           </div>
           <div class="artwork">
-            <img class="quattordici-photo" src="./quattordici-originale.jpg" alt="Quattordici, fotografia promozionale di Punto Critico" width="567" height="850" loading="lazy" decoding="async">
+            <img class="project-photo" src="./quattordici-originale.jpg" alt="Quattordici, fotografia promozionale di Punto Critico" width="567" height="850" loading="lazy" decoding="async">
           </div>
         </div>
       </section>
@@ -492,16 +432,8 @@
               <button class="interest-button" type="button" data-artist="MARCO RUSSO">Mi interessa</button>
             </div>
           </div>
-          <div class="artwork" aria-hidden="true">
-            <span class="art-corner top-left">DR / 03</span><span class="art-corner top-right">MARCO RUSSO</span>
-            <svg class="art-svg" viewBox="0 0 600 500" preserveAspectRatio="xMidYMid slice" focusable="false">
-              <g fill="none" stroke="currentColor" stroke-width=".8" opacity=".43" transform="rotate(-8 300 250)">
-                <rect x="83" y="33" width="434" height="434"/><rect x="99" y="49" width="402" height="402"/><rect x="115" y="65" width="370" height="370"/><rect x="131" y="81" width="338" height="338"/><rect x="147" y="97" width="306" height="306"/><rect x="163" y="113" width="274" height="274"/><rect x="179" y="129" width="242" height="242"/><rect x="195" y="145" width="210" height="210"/>
-              </g>
-              <path d="M0 250h600M300 0v500" fill="none" stroke="#b5a4a3" stroke-width=".8" opacity=".35"/>
-            </svg>
-            <span class="marco-type"><span>M</span><span>R</span></span>
-            <span class="art-corner bottom-left">DISCOGRAFICA ROMANA</span><span class="art-corner bottom-right">03</span>
+          <div class="artwork">
+            <img class="project-photo" src="./marco-russo-foto.jpg" alt="Marco Russo, ritratto promozionale" width="715" height="1080" loading="lazy" decoding="async">
           </div>
         </div>
       </section>
