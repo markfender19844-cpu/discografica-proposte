@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f1eee7">
+  <meta name="description" content="Le proposte artistiche di Discografica Romana: NUMA, Quattordici e Marco Russo. Scopri i progetti e accedi alle pagine dedicate.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="it_IT">
+  <meta property="og:site_name" content="Discografica Romana">
+  <meta property="og:title" content="Proposte - Discografica Romana">
+  <meta property="og:description" content="Tre progetti. Tre identità. NUMA, Quattordici e Marco Russo: esplora la selezione artistica di Discografica Romana.">
+  <title>Proposte | Discografica Romana</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%231b1c19'/%3E%3Ccircle cx='32' cy='32' r='21' fill='none' stroke='%23f1eee7'/%3E%3Ccircle cx='32' cy='32' r='9' fill='%23db432c'/%3E%3C/svg%3E">
+  <style>
+    /* 01. Base. All design elements are local; there are no remote fonts. */
+    :root {
+      --paper: #f1eee7;
+      --ink: #1b1c19;
+      --muted: #595b53;
+      --red: #bb351f;
+      --line: #cfcdc4;
+      --page-width: 1328px;
+      --gutter: clamp(24px, 5.25vw, 80px);
+      --sans: Arial, Helvetica, sans-serif;
+      --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 92px; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    a, button { -webkit-tap-highlight-color: transparent; }
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--red); outline-offset: 7px; }
+    ::selection { color: var(--paper); background: var(--red); }
+    h1, h2, p { margin: 0; }
+    svg { display: block; }
+    .wrap { width: min(var(--page-width), calc(100% - 2 * var(--gutter))); margin-inline: auto; }
+    .mono { font: 11px/1.5 var(--mono); letter-spacing: .1em; text-transform: uppercase; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+    .arrow { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.7; flex: none; }
+    .skip-link { position: fixed; left: 16px; top: -100px; z-index: 100; padding: 16px; color: var(--paper); background: var(--ink); }
+    .skip-link:focus { top: 16px; }
+
+    /* 02. Header and editorial introduction. */
+    .site-header { background: var(--paper); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 20; }
+    .header-row { height: 90px; display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+    .wordmark { display: inline-flex; align-items: center; gap: 12px; }
+    .record-mark { width: 38px; height: 38px; flex: none; }
+    .wordmark-text { font-size: 15px; line-height: .97; letter-spacing: -.04em; font-weight: 800; text-transform: uppercase; }
+    .main-nav { display: flex; align-items: center; gap: 42px; }
+    .nav-link { display: inline-flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 600; min-height: 44px; }
+    .nav-link.active::before { content: ""; width: 5px; height: 5px; background: var(--red); border-radius: 50%; }
+    .nav-link:hover { color: var(--red); }
+    .nav-link .arrow { width: 15px; height: 15px; }
+    .hero { padding-top: 53px; }
+    .hero-top { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+    .hero-kicker { display: flex; align-items: center; gap: 10px; }
+    .hero-kicker::before { content: ""; width: 7px; height: 7px; display: inline-block; background: var(--red); }
+    .hero-edition { color: var(--muted); }
+    .hero h1 { margin: 25px 0 32px -0.055em; font-weight: 800; font-size: clamp(60px, 14.1vw, 211px); line-height: .89; letter-spacing: -.078em; }
+    .hero h1 span { color: var(--red); }
+    .hero-bottom { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; padding: 9px 0 47px; }
+    .hero-subtitle { font-size: clamp(25px, 2.6vw, 40px); line-height: 1.06; letter-spacing: -.05em; font-weight: 500; }
+    .hero-summary { display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+    .hero-summary p { max-width: 295px; font-size: 15px; line-height: 1.6; color: var(--muted); }
+    .scroll-link { display: flex; align-items: center; justify-content: center; width: 58px; height: 58px; flex: none; border: 1px solid var(--ink); border-radius: 50%; transition: background .2s, color .2s, transform .2s; }
+    .scroll-link:hover { background: var(--ink); color: var(--paper); transform: translateY(3px); }
+    .scroll-link svg { width: 25px; height: 25px; }
+    .project-index { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); }
+    .index-link { padding: 26px 0; min-height: 74px; display: flex; align-items: center; gap: 22px; border-right: 1px solid var(--line); font-size: 12px; font-weight: 700; transition: color .2s; }
+    .index-link:not(:first-child) { padding-left: 28px; }
+    .index-link:last-child { border-right: 0; }
+    .index-link .number { font: 11px/1 var(--mono); color: var(--red); }
+    .index-link .arrow { width: 15px; height: 15px; margin-left: auto; margin-right: 28px; }
+    .index-link:last-child .arrow { margin-right: 0; }
+    .index-link:hover { color: var(--red); }
+
+    /* 03. Three full-width artist sections. The artworks are decorative
+       studies, not official artist logos or photos. */
+    .project { position: relative; overflow: hidden; scroll-margin-top: 0; }
+    .project-grid { min-height: 560px; display: grid; grid-template-columns: 1fr 1fr; }
+    .project-info { display: flex; flex-direction: column; align-items: flex-start; padding: 43px 44px 45px 0; z-index: 2; }
+    .project-meta { display: flex; gap: 24px; align-items: center; }
+    .project-meta .section-no { color: inherit; }
+    .project-meta .rule { width: 35px; height: 1px; background: currentColor; opacity: .4; }
+    .project-meta .category { opacity: .75; }
+    .project-heading { margin-top: auto; padding-top: 72px; }
+    .project-title { font-size: clamp(68px, 8.2vw, 124px); line-height: .88; letter-spacing: -.07em; font-weight: 800; }
+    .project-title.long { font-size: clamp(39px, 5.3vw, 81px); letter-spacing: -.065em; }
+    .project-title.two-lines { font-size: clamp(65px, 6.9vw, 106px); line-height: .9; }
+    .project-domain { margin-top: 22px; font: 12px/1.5 var(--mono); letter-spacing: -.02em; opacity: .77; overflow-wrap: anywhere; }
+    .project-link { margin-top: 35px; display: inline-flex; align-items: center; justify-content: space-between; gap: 50px; padding: 15px 0; min-width: 224px; min-height: 52px; border-bottom: 1px solid currentColor; font-size: 13px; font-weight: 600; transition: opacity .2s; }
+    .project-link .arrow { transition: transform .2s; }
+    .project-link:hover .arrow { transform: translate(4px, -4px); }
+    .project-link:hover { opacity: .8; }
+    .artwork { position: relative; min-width: 0; align-self: stretch; display: flex; align-items: center; justify-content: center; margin: 38px 0; overflow: hidden; isolation: isolate; border: 1px solid var(--art-border); }
+    .art-corner { position: absolute; z-index: 3; font: 10px/1 var(--mono); letter-spacing: .12em; }
+    .art-corner.top-left { left: 22px; top: 22px; }
+    .art-corner.top-right { right: 22px; top: 22px; }
+    .art-corner.bottom-left { left: 22px; bottom: 22px; }
+    .art-corner.bottom-right { right: 22px; bottom: 22px; }
+    .art-svg { width: 100%; height: 100%; position: absolute; inset: 0; }
+
+    /* NUMA */
+    .numa { background: #20251f; color: #f1eee7; --art-border: #5a6152; }
+    .numa .project-link:focus-visible, .marco .project-link:focus-visible { outline-color: #f1eee7; }
+    .numa .artwork { background: #b6bf9c; color: #20251f; }
+    .numa-type { z-index: 2; font-weight: 800; font-size: clamp(230px, 28vw, 426px); line-height: 1; letter-spacing: -.115em; margin-left: -.04em; margin-top: -12px; transform: rotate(-8deg); }
+    .numa .art-disc { fill: none; stroke: #414b34; opacity: .48; }
+    .numa .art-orbit { fill: none; stroke: #f6f5ed; stroke-width: 1; opacity: .72; }
+    .art-small-disc { position: absolute; width: 18px; height: 18px; background: #20251f; right: 36px; top: 50%; border-radius: 50%; }
+
+    /* QUATTORDICI */
+    .quattordici { background: #dd4b32; color: #10110d; --art-border: #9e3726; }
+    .quattordici .project-link:focus-visible { outline-color: #231d18; }
+    .quattordici .artwork { background: #e9654d; }
+    .quattordici .project-domain, .quattordici .category, .quattordici .project-link:hover { opacity: 1; }
+    .quattordici .art-svg { opacity: .5; }
+    .quattordici-type { position: absolute; z-index: 2; font-size: clamp(230px, 31vw, 472px); font-weight: 800; line-height: .85; letter-spacing: -.15em; margin-left: -.14em; transform: rotate(-9deg); color: var(--paper); }
+    .quattordici-type.outline { color: transparent; -webkit-text-stroke: 1px #752517; transform: translate(25px, 23px) rotate(-9deg); z-index: 1; }
+    .quattordici .art-corner { color: #231d18; }
+
+    /* MARCO RUSSO */
+    .marco { background: #212124; color: #f1eee7; --art-border: #575657; }
+    .marco .artwork { color: #f1eee7; background: #302e32; }
+    .marco .art-svg { color: #b5a4a3; }
+    .marco-type { display: flex; gap: 0; transform: rotate(-8deg); font-weight: 800; font-size: clamp(170px, 18.8vw, 285px); letter-spacing: -.15em; line-height: .85; margin-left: -.08em; z-index: 2; }
+    .marco-type span:first-child { transform: translateY(-28px); }
+    .marco-type span:last-child { transform: translateY(34px); color: #c9a194; }
+
+    /* 04. Closing navigation: no submissions or contact forms. */
+    .closing { padding: 64px 0 54px; }
+    .closing-row { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; }
+    .closing h2 { margin-top: 17px; font-size: clamp(28px, 3vw, 46px); line-height: 1.06; letter-spacing: -.05em; font-weight: 500; }
+    .closing-links { padding-top: 4px; }
+    .closing-link { padding: 15px 0; border-bottom: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; gap: 16px; font-size: 15px; font-weight: 600; min-height: 51px; transition: color .2s; }
+    .closing-link:hover { color: var(--red); }
+    .new-tab-note { color: var(--muted); font-size: 11px; line-height: 1.5; margin-top: 16px; max-width: 330px; }
+    .site-footer { padding: 24px 0 28px; border-top: 1px solid var(--line); }
+    .footer-row { display: flex; justify-content: space-between; align-items: center; gap: 30px; color: var(--muted); font-size: 11px; line-height: 1.5; }
+    .footer-home { display: inline-flex; align-items: center; gap: 10px; min-height: 40px; color: var(--ink); }
+    .footer-home .arrow { width: 15px; height: 15px; }
+    .footer-home:hover { color: var(--red); }
+
+    /* 05. Responsive layout. */
+    @media (min-width: 1600px) { .hero h1 { font-size: 221px; } }
+    @media (max-width: 1000px) {
+      .header-row { height: 78px; }
+      .project-grid { min-height: 484px; }
+      .project-info { padding-right: 28px; }
+      .project-heading { padding-top: 60px; }
+      .artwork { margin-block: 28px; }
+      .hero-summary p { font-size: 14px; }
+      .main-nav { gap: 26px; }
+      .index-link { gap: 15px; }
+      .index-link:not(:first-child) { padding-left: 18px; }
+      .index-link .arrow { margin-right: 18px; }
+    }
+    @media (max-width: 760px) {
+      html { scroll-padding-top: 76px; }
+      .header-row { height: 76px; }
+      .record-mark { width: 32px; height: 32px; }
+      .wordmark { gap: 9px; }
+      .wordmark-text { font-size: 12px; }
+      .main-nav { gap: 16px; }
+      .nav-link { font-size: 11px; gap: 6px; }
+      .nav-link.active { display: none; }
+      .hero { padding-top: 33px; }
+      .hero-kicker { font-size: 9px; letter-spacing: .07em; gap: 7px; }
+      .hero-edition { font-size: 9px; letter-spacing: 0; }
+      .hero h1 { font-size: 14.45vw; margin-top: 27px; margin-bottom: 27px; letter-spacing: -.08em; }
+      .hero-bottom { grid-template-columns: 1fr; gap: 23px; padding: 0 0 29px; }
+      .hero-subtitle { font-size: clamp(29px, 5.8vw, 38px); }
+      .hero-summary { gap: 24px; }
+      .hero-summary p { max-width: 315px; font-size: 13px; line-height: 1.55; }
+      .scroll-link { width: 45px; height: 45px; }
+      .scroll-link svg { width: 20px; height: 20px; }
+      .project-index { grid-template-columns: 1fr; padding: 7px 0; }
+      .index-link { min-height: 47px; padding: 12px 0; gap: 20px; border-right: 0; border-bottom: 1px solid var(--line); font-size: 11px; }
+      .index-link:not(:first-child) { padding-left: 0; }
+      .index-link:last-child { border-bottom: 0; }
+      .index-link .arrow { margin-right: 0; }
+      .project { scroll-margin-top: 0; }
+      .project-grid { grid-template-columns: 1fr; min-height: 0; padding: 28px 0 30px; }
+      .project-info { padding: 0; }
+      .project-meta { gap: 15px; }
+      .project-meta .mono { font-size: 10px; }
+      .project-heading { margin-top: 0; padding-top: 36px; }
+      .project-title { font-size: clamp(72px, 19vw, 125px); }
+      .project-title.long { font-size: clamp(37px, 9.5vw, 70px); }
+      .project-title.two-lines { font-size: clamp(58px, 16vw, 104px); }
+      .project-domain { font-size: 11px; margin-top: 17px; }
+      .project-link { margin-top: 15px; font-size: 12px; min-width: 210px; gap: 55px; padding-block: 13px; }
+      .artwork { margin: 30px 0 0; aspect-ratio: 1.12; width: 100%; }
+      .numa-type { font-size: clamp(250px, 68vw, 440px); }
+      .quattordici-type { font-size: clamp(260px, 77vw, 495px); }
+      .marco-type { font-size: clamp(193px, 48vw, 350px); }
+      .art-corner { font-size: 9px; }
+      .art-corner.top-left { left: 15px; top: 16px; }
+      .art-corner.top-right { right: 15px; top: 16px; }
+      .art-corner.bottom-left { left: 15px; bottom: 16px; }
+      .art-corner.bottom-right { right: 15px; bottom: 16px; }
+      .closing { padding: 40px 0 32px; }
+      .closing-row { grid-template-columns: 1fr; gap: 24px; }
+      .closing h2 { font-size: 32px; }
+      .closing-links { padding-top: 0; }
+      .footer-row { flex-direction: column; gap: 5px; align-items: flex-start; }
+      .site-footer { padding-block: 20px; }
+    }
+    @media (max-width: 350px) {
+      :root { --gutter: 19px; }
+      .hero-kicker { font-size: 8px; }
+      .hero-edition { font-size: 8px; }
+      .nav-link { font-size: 10px; }
+      .header-row { gap: 14px; }
+      .project-title.long { font-size: 33px; }
+      .project-meta { gap: 12px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+    }
+    @media print {
+      .site-header { position: static; }
+      .main-nav, .artwork, .scroll-link, .project-index, .closing { display: none; }
+      .hero { padding-top: 20px; }
+      .hero h1 { font-size: 70px; }
+      .hero-bottom { padding-bottom: 20px; }
+      .project, .numa, .quattordici, .marco { background: white; color: black; border-top: 1px solid #999; }
+      .project-grid { min-height: 0; display: block; }
+      .project-info { padding: 24px 0; }
+      .project-heading { padding-top: 20px; }
+      .project-title, .project-title.long, .project-title.two-lines { font-size: 40px; }
+      .project-link { margin-top: 10px; }
+      .project { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#contenuto" class="skip-link">Salta al contenuto</a>
+  <header class="site-header">
+    <div class="wrap header-row">
+      <a class="wordmark" href="https://discograficaromana.it/" aria-label="Discografica Romana, sito principale">
+        <svg class="record-mark" viewBox="0 0 42 42" aria-hidden="true" focusable="false">
+          <circle cx="21" cy="21" r="20" fill="currentColor"/>
+          <circle cx="21" cy="21" r="14" fill="none" stroke="#f1eee7" stroke-width=".7"/>
+          <circle cx="21" cy="21" r="10" fill="none" stroke="#f1eee7" stroke-width=".7"/>
+          <circle cx="21" cy="21" r="4" fill="#dd4b32"/>
+        </svg>
+        <span class="wordmark-text">Discografica<br>Romana</span>
+      </a>
+      <nav class="main-nav" aria-label="Navigazione principale">
+        <a class="nav-link active" href="#progetti">I progetti</a>
+        <a class="nav-link" href="https://discograficaromana.it/">Sito principale
+          <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenuto">
+    <section class="hero wrap" aria-labelledby="titolo">
+      <div class="hero-top">
+        <p class="mono hero-kicker">Discografica Romana presenta</p>
+        <p class="mono hero-edition">03 progetti</p>
+      </div>
+      <h1 id="titolo">PROPOSTE<span>.</span></h1>
+      <div class="hero-bottom">
+        <p class="hero-subtitle">Tre progetti.<br>Tre identit&agrave;.</p>
+        <div class="hero-summary">
+          <p>I progetti che proponiamo.<br>Esplora la nostra selezione artistica e accedi alle pagine dedicate.</p>
+          <a href="#progetti" class="scroll-link" aria-label="Esplora i tre progetti">
+            <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v17m-7-7 7 7 7-7"/></svg>
+          </a>
+        </div>
+      </div>
+      <nav class="project-index" aria-label="Indice dei progetti">
+        <a href="#numa" class="index-link"><span class="number">01</span><span>NUMA</span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v17m-7-7 7 7 7-7"/></svg></a>
+        <a href="#quattordici" class="index-link"><span class="number">02</span><span>QUATTORDICI</span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v17m-7-7 7 7 7-7"/></svg></a>
+        <a href="#marco-russo" class="index-link"><span class="number">03</span><span>MARCO RUSSO</span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v17m-7-7 7 7 7-7"/></svg></a>
+      </nav>
+    </section>
+
+    <div id="progetti">
+      <!-- PROJECT 01: text and original URL supplied by the site owner. -->
+      <section class="project numa" id="numa" aria-labelledby="numa-title">
+        <div class="wrap project-grid">
+          <div class="project-info">
+            <div class="project-meta"><span class="mono section-no">01 / 03</span><span class="rule" aria-hidden="true"></span><p class="mono category">Progetto artistico</p></div>
+            <div class="project-heading">
+              <h2 class="project-title" id="numa-title">NUMA</h2>
+              <p class="project-domain">numanumeriacaso.it</p>
+            </div>
+            <a class="project-link" href="https://numanumeriacaso.it/" target="_blank" rel="noopener noreferrer">Scopri NUMA<span class="sr-only"> (si apre in una nuova scheda)</span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg></a>
+          </div>
+          <div class="artwork" aria-hidden="true">
+            <span class="art-corner top-left">DR / 01</span><span class="art-corner top-right">NUMA</span>
+            <svg class="art-svg" viewBox="0 0 600 500" preserveAspectRatio="xMidYMid slice" focusable="false">
+              <g class="art-disc" stroke-width="1">
+                <circle cx="290" cy="250" r="225"/><circle cx="290" cy="250" r="211"/><circle cx="290" cy="250" r="197"/><circle cx="290" cy="250" r="183"/><circle cx="290" cy="250" r="169"/><circle cx="290" cy="250" r="155"/><circle cx="290" cy="250" r="141"/><circle cx="290" cy="250" r="127"/><circle cx="290" cy="250" r="113"/><circle cx="290" cy="250" r="99"/><circle cx="290" cy="250" r="85"/>
+              </g>
+              <g class="art-orbit" transform="rotate(-28 300 250)"><ellipse cx="300" cy="250" rx="340" ry="118"/><ellipse cx="300" cy="250" rx="340" ry="129"/><ellipse cx="300" cy="250" rx="340" ry="140"/></g>
+            </svg>
+            <span class="numa-type">N</span><span class="art-small-disc"></span>
+            <span class="art-corner bottom-left">DISCOGRAFICA ROMANA</span><span class="art-corner bottom-right">01</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECT 02. Decorative numerals are not an official artist logo. -->
+      <section class="project quattordici" id="quattordici" aria-labelledby="quattordici-title">
+        <div class="wrap project-grid">
+          <div class="project-info">
+            <div class="project-meta"><span class="mono section-no">02 / 03</span><span class="rule" aria-hidden="true"></span><p class="mono category">Progetto artistico</p></div>
+            <div class="project-heading">
+              <h2 class="project-title long" id="quattordici-title">QUATTORDICI</h2>
+              <p class="project-domain">quattordici.wtf</p>
+            </div>
+            <a class="project-link" href="https://quattordici.wtf/" target="_blank" rel="noopener noreferrer">Scopri Quattordici<span class="sr-only"> (si apre in una nuova scheda)</span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg></a>
+          </div>
+          <div class="artwork" aria-hidden="true">
+            <span class="art-corner top-left">DR / 02</span><span class="art-corner top-right">QUATTORDICI</span>
+            <svg class="art-svg" viewBox="0 0 600 500" preserveAspectRatio="xMidYMid slice" focusable="false">
+              <defs><pattern id="q-grid" width="42" height="42" patternUnits="userSpaceOnUse"><path d="M42 0H0v42" fill="none" stroke="#91301f" stroke-width=".7"/></pattern></defs>
+              <rect width="600" height="500" fill="url(#q-grid)"/><circle cx="300" cy="250" r="192" fill="none" stroke="#772a1d" stroke-width="1"/>
+              <path d="M0 0 600 500M600 0 0 500" fill="none" stroke="#772a1d" stroke-width=".7"/>
+            </svg>
+            <span class="quattordici-type outline">14</span><span class="quattordici-type">14</span>
+            <span class="art-corner bottom-left">DISCOGRAFICA ROMANA</span><span class="art-corner bottom-right">02</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECT 03: link to the existing press kit, not to a recreated copy. -->
+      <section class="project marco" id="marco-russo" aria-labelledby="marco-title">
+        <div class="wrap project-grid">
+          <div class="project-info">
+            <div class="project-meta"><span class="mono section-no">03 / 03</span><span class="rule" aria-hidden="true"></span><p class="mono category">Press kit</p></div>
+            <div class="project-heading">
+              <h2 class="project-title two-lines" id="marco-title">MARCO<br>RUSSO</h2>
+              <p class="project-domain">marcorussomusic.it/presskit/</p>
+            </div>
+            <a class="project-link" href="https://marcorussomusic.it/presskit/" target="_blank" rel="noopener noreferrer">Apri il press kit<span class="sr-only"> di Marco Russo (si apre in una nuova scheda)</span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg></a>
+          </div>
+          <div class="artwork" aria-hidden="true">
+            <span class="art-corner top-left">DR / 03</span><span class="art-corner top-right">MARCO RUSSO</span>
+            <svg class="art-svg" viewBox="0 0 600 500" preserveAspectRatio="xMidYMid slice" focusable="false">
+              <g fill="none" stroke="currentColor" stroke-width=".8" opacity=".43" transform="rotate(-8 300 250)">
+                <rect x="83" y="33" width="434" height="434"/><rect x="99" y="49" width="402" height="402"/><rect x="115" y="65" width="370" height="370"/><rect x="131" y="81" width="338" height="338"/><rect x="147" y="97" width="306" height="306"/><rect x="163" y="113" width="274" height="274"/><rect x="179" y="129" width="242" height="242"/><rect x="195" y="145" width="210" height="210"/>
+              </g>
+              <path d="M0 250h600M300 0v500" fill="none" stroke="#b5a4a3" stroke-width=".8" opacity=".35"/>
+            </svg>
+            <span class="marco-type"><span>M</span><span>R</span></span>
+            <span class="art-corner bottom-left">DISCOGRAFICA ROMANA</span><span class="art-corner bottom-right">03</span>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section class="closing wrap" aria-labelledby="closing-title">
+      <div class="closing-row">
+        <div><p class="mono">La selezione artistica</p><h2 id="closing-title">Un punto di partenza.<br>Tre mondi da esplorare.</h2></div>
+        <div class="closing-links">
+          <a class="closing-link" href="https://numanumeriacaso.it/" target="_blank" rel="noopener noreferrer">NUMA<span class="sr-only"> (si apre in una nuova scheda)</span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg></a>
+          <a class="closing-link" href="https://quattordici.wtf/" target="_blank" rel="noopener noreferrer">Quattordici<span class="sr-only"> (si apre in una nuova scheda)</span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg></a>
+          <a class="closing-link" href="https://marcorussomusic.it/presskit/" target="_blank" rel="noopener noreferrer">Marco Russo &mdash; Press kit<span class="sr-only"> (si apre in una nuova scheda)</span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg></a>
+          <p class="new-tab-note">Le pagine dei progetti si aprono in una nuova scheda.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-row">
+      <p>Discografica Romana &nbsp;/&nbsp; Proposte artistiche</p>
+      <a class="footer-home" href="https://discograficaromana.it/">Torna al sito principale<svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg></a>
+    </div>
+  </footer>
+</body>
+</html>
