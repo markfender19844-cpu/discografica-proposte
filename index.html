@@ -22,6 +22,7 @@
       --line: #cfcdc4;
       --page-width: 1328px;
       --gutter: clamp(24px, 5.25vw, 80px);
+      --brand-width: clamp(210px, 22vw, 320px);
       --sans: Arial, Helvetica, sans-serif;
       --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
     }
@@ -45,7 +46,7 @@
     .site-header { background: var(--paper); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 20; }
     .header-row { height: 90px; display: flex; justify-content: space-between; align-items: center; gap: 24px; }
     .wordmark { display: inline-flex; align-items: center; background: linear-gradient(to right, transparent 0 77.7163%, #F2B80E 77.7163% 100%); }
-    .brand-logo { display: block; width: clamp(210px, 22vw, 320px); height: auto; }
+    .brand-logo { display: block; width: var(--brand-width); height: auto; }
     .record-mark { width: 38px; height: 38px; flex: none; }
     .wordmark-text { font-size: 15px; line-height: .97; letter-spacing: -.04em; font-weight: 800; text-transform: uppercase; }
     .main-nav { display: flex; align-items: center; gap: 42px; }
@@ -58,8 +59,6 @@
     .hero-kicker { display: flex; align-items: center; gap: 10px; }
     .hero-kicker::before { content: ""; width: 7px; height: 7px; display: inline-block; background: var(--red); }
     .hero-edition { color: var(--muted); }
-    .hero h1 { margin: 25px 0 32px -0.055em; font-weight: 800; font-size: clamp(60px, 14.1vw, 211px); line-height: .89; letter-spacing: -.078em; }
-    .hero h1 span { color: var(--red); }
     .hero-bottom { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; padding: 9px 0 47px; }
     .hero-subtitle { font-size: clamp(25px, 2.6vw, 40px); line-height: 1.06; letter-spacing: -.05em; font-weight: 500; }
     .hero-summary { display: flex; align-items: center; justify-content: space-between; gap: 28px; }
@@ -155,13 +154,14 @@
 
     /* Editorial hero: compact title + three-project visual canvas. */
     .hero-editorial { padding-top: clamp(34px, 5vh, 68px); }
-    .hero-editorial { display: grid; grid-template-columns: minmax(265px, 340px) minmax(0, 1fr); column-gap: clamp(34px, 5vw, 76px); align-items: stretch; }
+    .hero-editorial { display: grid; grid-template-columns: minmax(0, var(--brand-width)) minmax(0, 1fr); column-gap: clamp(34px, 5vw, 76px); align-items: stretch; }
     .hero-copy { min-width: 0; display: flex; flex-direction: column; align-self: stretch; }
-    .hero-copy-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 26px; }
+    .hero-copy-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; margin-bottom: 26px; }
     .hero-copy .hero-kicker { padding-left: 18px; position: relative; }
     .hero-copy .hero-kicker::before { content: ""; position: absolute; left: 0; top: .42em; width: 8px; height: 8px; background: var(--red); }
     .hero-copy .hero-edition { white-space: nowrap; }
-    .hero-editorial h1 { margin: 0; max-width: 330px; font-size: clamp(50px, 4.4vw, 68px); line-height: .9; letter-spacing: -.07em; font-weight: 800; }
+    /* One title rule at every viewport: aligned with the logo and no wider. */
+    .hero-editorial h1 { margin: 0; width: 100%; max-width: var(--brand-width); font-size: calc(var(--brand-width) * .18); line-height: .95; letter-spacing: -.07em; font-weight: 800; }
     .hero-editorial h1 span { color: var(--red); }
     .hero-editorial .hero-subtitle { margin-top: 24px; font-size: clamp(24px, 2.1vw, 32px); line-height: 1.04; letter-spacing: -.045em; font-weight: 500; }
     .hero-mzk { margin-top: auto; padding: 22px 0 4px; border-top: 1px solid var(--ink); display: grid; gap: 8px; }
@@ -207,7 +207,6 @@
       .hero-editorial { padding-top: 26px; }
       .hero-copy { min-height: 0; max-width: 100%; }
       .hero-copy-top { margin-bottom: 18px; }
-      .hero-editorial h1 { max-width: 290px; font-size: clamp(47px, 15vw, 62px); }
       .hero-editorial .hero-subtitle { margin-top: 16px; }
       .hero-mzk { margin-top: 26px; padding-top: 18px; }
       .proposal-canvas { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(235px, 78vw); grid-template-columns: none; height: 360px; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; padding-bottom: 8px; }
@@ -217,7 +216,6 @@
     }
 
     /* 05. Responsive layout. */
-    @media (min-width: 1600px) { .hero h1 { font-size: 221px; } }
     @media (max-width: 1000px) {
       .header-row { height: 78px; }
       .project-grid { min-height: 560px; }
@@ -242,7 +240,6 @@
       .hero { padding-top: 33px; }
       .hero-kicker { font-size: 9px; letter-spacing: .07em; gap: 7px; }
       .hero-edition { font-size: 9px; letter-spacing: 0; }
-      .hero h1 { font-size: 14.45vw; margin-top: 27px; margin-bottom: 27px; letter-spacing: -.08em; }
       .hero-bottom { grid-template-columns: 1fr; gap: 23px; padding: 0 0 29px; }
       .hero-subtitle { font-size: clamp(29px, 5.8vw, 38px); }
       .hero-summary { gap: 24px; }
