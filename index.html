@@ -49,6 +49,7 @@
     .brand-logo { display: block; width: var(--brand-width); height: auto; }
     .record-mark { width: 38px; height: 38px; flex: none; }
     .wordmark-text { font-size: 15px; line-height: .97; letter-spacing: -.04em; font-weight: 800; text-transform: uppercase; }
+    .mobile-menu, .mobile-swipe-hint { display: none; }
     .main-nav { display: flex; align-items: center; gap: 42px; }
     .nav-link { display: inline-flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 600; min-height: 44px; }
     .nav-link.active::before { content: ""; width: 5px; height: 5px; background: var(--red); border-radius: 50%; }
@@ -208,24 +209,6 @@
       .hero-editorial .project-index { margin-top: 0; }
     }
 
-    @media (max-width: 640px) {
-      .hero-editorial { padding-top: 26px; }
-      .hero-copy { min-height: 0; max-width: 100%; }
-      .hero-copy-top { margin-bottom: 18px; }
-      .hero-editorial .hero-subtitle { margin-top: 16px; }
-      .hero-mzk { margin-top: 26px; padding-top: 18px; }
-      .proposal-canvas { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(235px, 78vw); grid-template-columns: none; height: 360px; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; padding-bottom: 8px; }
-      .canvas-card { scroll-snap-align: start; }
-      .canvas-card h2 { font-size: 34px; }
-      .canvas-quattordici h2 { font-size: 27px; letter-spacing: -.065em; }
-    }
-
-    /* Keep the Instagram target beside the artist link on narrow screens. */
-    @media (max-width: 400px), (min-width: 761px) and (max-width: 850px) {
-      .artist-links { gap: 10px 16px; }
-      .instagram-link span { display: none; }
-    }
-
     /* 05. Responsive layout. */
     @media (max-width: 1000px) {
       .header-row { height: 78px; }
@@ -240,56 +223,100 @@
       .index-link .arrow { margin-right: 18px; }
     }
     @media (max-width: 760px) {
-      html { scroll-padding-top: 76px; }
-      .header-row { height: 76px; }
-      .record-mark { width: 32px; height: 32px; }
-      .wordmark { gap: 9px; }
-      .wordmark-text { font-size: 12px; }
-      .main-nav { gap: 16px; }
-      .nav-link { font-size: 11px; gap: 6px; }
-      .nav-link.active { display: none; }
-      .hero { padding-top: 33px; }
-      .hero-kicker { font-size: 9px; letter-spacing: .07em; gap: 7px; }
-      .hero-edition { font-size: 9px; letter-spacing: 0; }
-      .hero-bottom { grid-template-columns: 1fr; gap: 23px; padding: 0 0 29px; }
-      .hero-subtitle { font-size: clamp(29px, 5.8vw, 38px); }
-      .hero-summary { gap: 24px; }
-      .hero-summary p { max-width: 315px; font-size: 13px; line-height: 1.55; }
-      .scroll-link { width: 45px; height: 45px; }
-      .scroll-link svg { width: 20px; height: 20px; }
-      .project-index { grid-template-columns: 1fr; padding: 7px 0; }
-      .index-link { min-height: 47px; padding: 12px 0; gap: 20px; border-right: 0; border-bottom: 1px solid var(--line); font-size: 11px; }
-      .index-link:not(:first-child) { padding-left: 0; }
-      .index-link:last-child { border-bottom: 0; }
-      .index-link .arrow { margin-right: 0; }
-      .project { scroll-margin-top: 0; }
-      .project-grid { grid-template-columns: 1fr; min-height: 0; padding: 28px 0 30px; }
-      .project-info { padding: 0; }
-      .project-meta { gap: 15px; }
+      :root { --gutter: clamp(18px, 5vw, 30px); --brand-width: min(210px, 60vw); }
+      html { scroll-padding-top: 88px; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+      .header-row { height: 76px; gap: 16px; }
+      .wordmark { flex: none; }
+      .main-nav { display: none; }
+      .mobile-menu { display: block; position: relative; margin-left: auto; }
+      .mobile-menu summary { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; cursor: pointer; border: 1px solid var(--line); list-style: none; }
+      .mobile-menu summary::-webkit-details-marker { display: none; }
+      .mobile-menu summary svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.7; }
+      .mobile-menu summary:focus-visible { outline: 3px solid var(--red); outline-offset: 3px; }
+      .mobile-menu[open] summary { color: var(--paper); background: var(--ink); border-color: var(--ink); }
+      .mobile-menu nav { position: absolute; right: 0; top: calc(100% + 10px); width: min(280px, calc(100vw - 36px)); padding: 8px 16px; background: var(--paper); border: 1px solid var(--line); box-shadow: 0 12px 24px rgba(0,0,0,.12); }
+      .mobile-menu .nav-link { display: flex; justify-content: space-between; min-height: 48px; font-size: 14px; border-bottom: 1px solid var(--line); }
+      .mobile-menu .nav-link:last-child { border-bottom: 0; }
+      .hero-editorial { padding-top: 24px; gap: 22px; }
+      .hero-copy { min-height: 0; max-width: 100%; }
+      .hero-copy-top { margin-bottom: 16px; gap: 7px 12px; }
+      .hero-kicker, .hero-edition { font-size: 9px; letter-spacing: .06em; }
+      .hero-copy .hero-kicker { padding-left: 14px; }
+      .hero-editorial .hero-subtitle { margin-top: 12px; max-width: 32ch; }
+      .hero-mzk { margin-top: 22px; padding: 16px 0 0; grid-template-columns: 1fr auto; align-items: center; column-gap: 12px; row-gap: 5px; }
+      .hero-mzk-kicker { font-size: 9px; }
+      .hero-mzk-name { grid-column: 2; grid-row: 1 / 3; gap: 7px; }
+      .hero-mzk-logo { width: 38px; }
+      .hero-mzk strong { font-size: 24px; white-space: nowrap; }
+      .hero-mzk-meta { font-size: 11px; gap: 5px; flex-wrap: wrap; }
+      .hero-editorial .project-index { margin-top: 0; }
+      .project-index { grid-template-columns: repeat(3, minmax(0, 1fr)); padding: 0; }
+      .index-link { display: grid; grid-template-columns: 1fr auto; align-content: center; min-height: 66px; padding: 12px 10px; gap: 8px; font-size: 11px; }
+      .index-link:first-child { padding-left: 0; }
+      .index-link:not(:first-child) { padding-left: 10px; }
+      .index-link:last-child { padding-right: 0; }
+      .index-link > span:not(.number) { grid-column: 1 / -1; grid-row: 2; }
+      .index-link .arrow { grid-row: 1; grid-column: 2; width: 13px; height: 13px; margin: 0; }
+      .project-grid { grid-template-columns: minmax(0, 1fr); min-height: 0; padding: 28px 0 32px; }
+      .project-info { min-width: 0; padding: 0; }
+      .project-meta { gap: 14px; }
       .project-meta .mono { font-size: 10px; }
-      .project-heading { margin-top: 0; padding-top: 36px; }
-      .project-title { font-size: clamp(72px, 19vw, 125px); }
-      .project-title.long { font-size: clamp(37px, 9.5vw, 70px); }
-      .project-title.two-lines { font-size: clamp(58px, 16vw, 104px); }
-      .project-domain { font-size: 11px; margin-top: 17px; }
-      .project-link { margin-top: 15px; font-size: 12px; min-width: 210px; gap: 55px; padding-block: 13px; }
-      .artwork { margin: 30px 0 0; width: 100%; }
-      .project-photo { position: static; width: 100%; height: auto; max-height: 540px; }
-      .closing { padding: 40px 0 32px; }
-      .closing-row { grid-template-columns: 1fr; gap: 24px; }
-      .closing h2 { font-size: 32px; }
+      .project-heading { margin-top: 0; padding-top: 30px; max-width: 100%; }
+      .project-title { font-size: clamp(64px, 18vw, 108px); }
+      .project-title.long { font-size: clamp(32px, 9.3vw, 64px); }
+      .project-title.two-lines { font-size: clamp(58px, 16vw, 98px); }
+      .project-domain { font-size: 12px; margin-top: 16px; }
+      .project-actions { display: grid; width: 100%; gap: 14px; margin-top: 24px; }
+      .artist-links { width: 100%; flex-wrap: nowrap; gap: 14px; }
+      .project-link { flex: 1; min-width: 0; min-height: 52px; gap: 12px; font-size: 13px; }
+      .instagram-link { flex: none; min-width: 48px; padding-inline: 6px; font-size: 13px; }
+      .interest-button { width: 100%; min-height: 52px; }
+      .artwork { margin: 26px 0 0; width: 100%; }
+      .project-photo { position: static; width: 100%; height: auto; max-height: 564px; }
+      .closing { padding: 36px 0 30px; }
+      .closing-row { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+      .closing h2 { font-size: 30px; }
       .closing-links { padding-top: 0; }
-      .footer-row { flex-direction: column; gap: 5px; align-items: flex-start; }
+      .footer-row { flex-direction: column; gap: 12px; align-items: flex-start; }
+      .footer-home { min-height: 44px; }
       .site-footer { padding-block: 20px; }
+      .interest-modal { padding: 12px; }
+      .modal-panel { max-height: calc(100vh - 24px); max-height: calc(100dvh - 24px); padding: 26px 22px; overscroll-behavior: contain; }
+      .modal-close { top: 12px; right: 12px; width: 44px; height: 44px; }
+      .modal-panel h2 { font-size: 32px; line-height: 1.05; overflow-wrap: anywhere; }
+      .modal-kicker { max-width: calc(100% - 44px); }
+      .interest-form { grid-template-columns: minmax(0, 1fr); gap: 18px; margin-top: 24px; }
+      .field input, .field textarea { min-height: 48px; font-size: 16px; }
+      .privacy-row { padding-block: 8px; }
+      .privacy-row input { flex: none; width: 20px; height: 20px; margin: 0; }
     }
-    @media (max-width: 350px) {
-      :root { --gutter: 19px; }
-      .hero-kicker { font-size: 8px; }
-      .hero-edition { font-size: 8px; }
-      .nav-link { font-size: 10px; }
-      .header-row { gap: 14px; }
-      .project-title.long { font-size: 33px; }
-      .project-meta { gap: 12px; }
+    @media (max-width: 640px) {
+      .mobile-swipe-hint { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: -12px; font-size: 11px; color: var(--muted); }
+      .mobile-swipe-hint .arrow { width: 18px; height: 18px; }
+      .proposal-canvas { grid-auto-flow: column; grid-auto-columns: min(84vw, 340px); grid-template-columns: none; height: auto; gap: 12px; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scroll-padding-inline: 0; padding-bottom: 12px; scrollbar-width: thin; scrollbar-color: var(--muted) var(--line); }
+      .canvas-card { aspect-ratio: 2 / 3; min-height: 410px; padding: 20px 18px; scroll-snap-align: start; scroll-snap-stop: always; }
+      .canvas-card h2 { font-size: 34px; }
+      .canvas-quattordici h2 { font-size: clamp(25px, 7vw, 30px); letter-spacing: -.065em; }
+      .canvas-tag { font-size: 10px; line-height: 1.5; }
+      .canvas-card p:not(.canvas-tag) { font-size: 14px; line-height: 1.45; }
+      .canvas-card::after { background: linear-gradient(to top, rgba(0,0,0,.9), rgba(0,0,0,.5) 36%, rgba(0,0,0,.05) 68%); }
+    }
+    @media (min-width: 761px) and (max-width: 850px) {
+      .artist-links { gap: 10px 16px; }
+      .instagram-link span { display: none; }
+    }
+    @media (max-width: 360px) {
+      .hero-mzk { column-gap: 8px; }
+      .hero-mzk strong { font-size: 21px; }
+      .hero-mzk-logo { width: 34px; }
+      .hero-mzk-meta { max-width: 125px; }
+      .hero-mzk-meta .arrow { display: none; }
+      .index-link { font-size: 10px; }
+      .instagram-link span { display: none; }
+    }
+    @media (hover: none) {
+      .canvas-card:hover { transform: none; filter: none; }
+      .interest-button:hover { transform: none; }
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -327,6 +354,14 @@
           <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg>
         </a>
       </nav>
+      <details class="mobile-menu">
+        <summary aria-label="Menu di navigazione"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 6h16M4 12h16M4 18h16"/></svg></summary>
+        <nav aria-label="Navigazione mobile">
+          <a class="nav-link" href="#progetti">I progetti<svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v17m-7-7 7 7 7-7"/></svg></a>
+          <a class="nav-link" href="https://mzklab.com/" target="_blank" rel="noopener noreferrer">MZK Lab<svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg></a>
+          <a class="nav-link" href="https://discograficaromana.it/">Sito principale<svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg></a>
+        </nav>
+      </details>
     </div>
   </header>
 
@@ -352,6 +387,7 @@
         </a>
       </div>
 
+      <p class="mobile-swipe-hint">Scorri per vedere i tre progetti<svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 12h17m-7-7 7 7-7 7"/></svg></p>
       <div class="proposal-canvas" aria-label="Anteprima dei tre progetti">
         <a class="canvas-card canvas-numa" href="#numa" aria-label="Vai a NUMA">
           <span class="canvas-no mono">01</span>
@@ -573,6 +609,20 @@
         } finally {
           submitButton.disabled = false;
           submitButton.textContent = originalLabel;
+        }
+      });
+    })();
+  </script>
+
+  <script>
+    (() => {
+      const menu = document.querySelector('.mobile-menu');
+      menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => { menu.open = false; }));
+      document.addEventListener('click', event => { if (!menu.contains(event.target)) menu.open = false; });
+      document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && menu.open) {
+          menu.open = false;
+          menu.querySelector('summary').focus();
         }
       });
     })();
