@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f1eee7">
-  <meta name="description" content="Le proposte artistiche di Discografica Romana: NUMA, Quattordici e Marco Russo. Scopri i progetti e accedi alle pagine dedicate.">
+  <meta name="description" content="Le proposte artistiche di Discografica Romana: NUMA, Quattordici e Marco Russo, editi e curati da MZK Lab, etichetta indipendente di Roma.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="it_IT">
   <meta property="og:site_name" content="Discografica Romana">
@@ -44,7 +44,7 @@
     /* 02. Header and editorial introduction. */
     .site-header { background: var(--paper); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 20; }
     .header-row { height: 90px; display: flex; justify-content: space-between; align-items: center; gap: 24px; }
-    .wordmark { display: inline-flex; align-items: center; }
+    .wordmark { display: inline-flex; align-items: center; background: linear-gradient(to right, transparent 0 77.7163%, #F2B80E 77.7163% 100%); }
     .brand-logo { display: block; width: clamp(210px, 22vw, 320px); height: auto; }
     .record-mark { width: 38px; height: 38px; flex: none; }
     .wordmark-text { font-size: 15px; line-height: .97; letter-spacing: -.04em; font-weight: 800; text-transform: uppercase; }
@@ -168,6 +168,16 @@
     .form-note { grid-column:1/-1; min-height:20px; color:var(--muted); font-size:12px; line-height:1.45; }
     .form-note.error { color:#9b2415; }
 
+
+    .mzk-feature { display: grid; grid-template-columns: .72fr 1.7fr .58fr; gap: 34px; align-items: end; padding: 30px 0 32px; border-top: 1px solid var(--ink); }
+    .mzk-eyebrow { align-self: start; color: var(--red); }
+    .mzk-feature-main { display: grid; gap: 13px; }
+    .mzk-name { display: inline-flex; align-items: center; gap: 18px; width: fit-content; font-size: clamp(44px, 6.5vw, 96px); line-height: .86; letter-spacing: -.065em; font-weight: 800; }
+    .mzk-name .arrow { width: .3em; height: .3em; stroke-width: 1.7; }
+    .mzk-feature-main p { max-width: 560px; font-size: 15px; line-height: 1.55; color: var(--muted); }
+    .mzk-feature-main strong { color: var(--ink); font-weight: 700; }
+    .mzk-url { justify-self: end; align-self: end; border-bottom: 1px solid currentColor; padding-bottom: 4px; }
+
     /* 05. Responsive layout. */
     @media (min-width: 1600px) { .hero h1 { font-size: 221px; } }
     @media (max-width: 1000px) {
@@ -271,6 +281,9 @@
       </a>
       <nav class="main-nav" aria-label="Navigazione principale">
         <a class="nav-link active" href="#progetti">I progetti</a>
+        <a class="nav-link" href="https://mzklab.com/" target="_blank" rel="noopener noreferrer">MZK Lab
+          <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg>
+        </a>
         <a class="nav-link" href="https://discograficaromana.it/">Sito principale
           <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg>
         </a>
@@ -288,12 +301,24 @@
       <div class="hero-bottom">
         <p class="hero-subtitle">Tre progetti.<br>Tre identit&agrave;.</p>
         <div class="hero-summary">
-          <p>I progetti che proponiamo.<br>Esplora la nostra selezione artistica e accedi alle pagine dedicate.</p>
+          <p>Esplora la selezione artistica e accedi alle pagine dedicate.</p>
           <a href="#progetti" class="scroll-link" aria-label="Esplora i tre progetti">
             <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v17m-7-7 7 7 7-7"/></svg>
           </a>
         </div>
       </div>
+
+      <aside class="mzk-feature" aria-label="MZK Lab, etichetta dei progetti">
+        <p class="mono mzk-eyebrow">Editi e curati da</p>
+        <div class="mzk-feature-main">
+          <a class="mzk-name" href="https://mzklab.com/" target="_blank" rel="noopener noreferrer">MZK LAB<span class="sr-only">, sito esterno</span>
+            <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg>
+          </a>
+          <p>I tre progetti sono <strong>editi e curati da MZK Lab</strong>, etichetta indipendente di Roma.</p>
+        </div>
+        <a class="mono mzk-url" href="https://mzklab.com/" target="_blank" rel="noopener noreferrer">MZKLAB.COM</a>
+      </aside>
+
       <nav class="project-index" aria-label="Indice dei progetti">
         <a href="#numa" class="index-link"><span class="number">01</span><span>NUMA</span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v17m-7-7 7 7 7-7"/></svg></a>
         <a href="#quattordici" class="index-link"><span class="number">02</span><span>QUATTORDICI</span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v17m-7-7 7 7 7-7"/></svg></a>
@@ -337,10 +362,10 @@
             <div class="project-meta"><span class="mono section-no">02 / 03</span><span class="rule" aria-hidden="true"></span><p class="mono category">Progetto artistico</p></div>
             <div class="project-heading">
               <h2 class="project-title long" id="quattordici-title">QUATTORDICI</h2>
-              <p class="project-domain">quattordici.wtf</p>
+              <p class="project-domain">www.quattordici.wtf</p>
             </div>
             <div class="project-actions">
-              <a class="project-link" href="https://quattordici.wtf/" target="_blank" rel="noopener noreferrer">Scopri Quattordici<span class="sr-only"> (si apre in una nuova scheda)</span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg></a>
+              <a class="project-link" href="https://www.quattordici.wtf/" target="_blank" rel="noopener noreferrer">Scopri Quattordici<span class="sr-only"> (si apre in una nuova scheda)</span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg></a>
               <button class="interest-button" type="button" data-artist="QUATTORDICI">Mi interessa</button>
             </div>
           </div>
@@ -391,8 +416,8 @@
         <div><p class="mono">La selezione artistica</p><h2 id="closing-title">Un punto di partenza.<br>Tre mondi da esplorare.</h2></div>
         <div class="closing-links">
           <a class="closing-link" href="https://www.numeriacaso.it/" target="_blank" rel="noopener noreferrer">NUMA<span class="sr-only"> (si apre in una nuova scheda)</span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg></a>
-          <a class="closing-link" href="https://quattordici.wtf/" target="_blank" rel="noopener noreferrer">Quattordici<span class="sr-only"> (si apre in una nuova scheda)</span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg></a>
-          <a class="closing-link" href="https://marcorussomusic.it/presskit/" target="_blank" rel="noopener noreferrer">Marco Russo &mdash; Press kit<span class="sr-only"> (si apre in una nuova scheda)</span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg></a>
+          <a class="closing-link" href="https://www.quattordici.wtf/" target="_blank" rel="noopener noreferrer">Quattordici<span class="sr-only"> (si apre in una nuova scheda)</span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg></a>
+          <a class="closing-link" href="https://marcorussomusic.it/presskit/" target="_blank" rel="noopener noreferrer">Marco Russo<span class="sr-only"> (si apre in una nuova scheda)</span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg></a>
           <p class="new-tab-note">Le pagine dei progetti si aprono in una nuova scheda.</p>
         </div>
       </div>
@@ -427,7 +452,7 @@
 
   <footer class="site-footer">
     <div class="wrap footer-row">
-      <p>Discografica Romana &nbsp;/&nbsp; Proposte artistiche</p>
+      <p>Discografica Romana &nbsp;/&nbsp; Proposte artistiche &nbsp;/&nbsp; <a href="https://mzklab.com/" target="_blank" rel="noopener noreferrer">Editi e curati da MZK Lab</a></p>
       <a class="footer-home" href="https://discograficaromana.it/">Torna al sito principale<svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg></a>
     </div>
   </footer>
