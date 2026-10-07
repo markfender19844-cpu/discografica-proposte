@@ -93,7 +93,7 @@
     .project-link .arrow { transition: transform .2s; }
     .project-link:hover .arrow { transform: translate(4px, -4px); }
     .project-link:hover { opacity: .8; }
-    .artwork { position: relative; min-width: 0; align-self: stretch; display: flex; align-items: center; justify-content: center; margin: 38px 0; overflow: hidden; }
+    .artwork { position: relative; min-width: 0; width: 100%; max-width: 376px; justify-self: center; align-self: stretch; display: flex; align-items: center; justify-content: center; margin: 38px 0; overflow: hidden; }
     .project-photo { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: contain; }
 
     /* Each photograph keeps its own proportions; none is enlarged into a background. */
@@ -170,7 +170,7 @@
     .hero-mzk-meta { display: inline-flex; align-items: center; gap: 9px; color: var(--muted); font-size: 13px; }
     .hero-mzk-meta .arrow { width: 15px; height: 15px; }
 
-    .proposal-canvas { min-width: 0; display: grid; grid-template-columns: 1.08fr .92fr 1fr; gap: 10px; height: clamp(330px, 39vw, 475px); }
+    .proposal-canvas { min-width: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; height: clamp(330px, 39vw, 475px); }
     .canvas-card { position: relative; min-width: 0; overflow: hidden; isolation: isolate; display: flex; flex-direction: column; justify-content: flex-end; padding: 18px; color: #fff; border: 1px solid rgba(0,0,0,.14); transition: transform .25s ease, filter .25s ease; }
     .canvas-card:hover { transform: translateY(-4px); filter: saturate(1.06); }
     .canvas-card::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(to top, rgba(0,0,0,.78) 0%, rgba(0,0,0,.18) 55%, rgba(0,0,0,.03) 100%); }
@@ -189,7 +189,7 @@
       white-space: nowrap;
     }
     .canvas-card p:not(.canvas-tag) { margin-top: 10px; max-width: 28ch; font-size: 12px; line-height: 1.4; color: rgba(255,255,255,.86); }
-    .canvas-numa { background-image: url("./numa-foto.jpg"); background-size: cover; background-position: 50% 50%; }
+    .canvas-numa { background-image: url("./numa-ritratto-bn.jpg"); background-size: cover; background-position: 50% 50%; }
     .canvas-quattordici { background-image: url("./quattordici-originale.jpg"); background-size: cover; background-position: center 52%; background-repeat: no-repeat; }
     .canvas-quattordici::before { display: none; }
     .canvas-marco { background-image: url("./marco-russo-foto.jpg"); background-size: cover; background-position: center 34%; }
@@ -342,27 +342,27 @@
         <a class="canvas-card canvas-numa" href="#numa" aria-label="Vai a NUMA">
           <span class="canvas-no mono">01</span>
           <div class="canvas-bottom">
-            <p class="canvas-tag mono">Rock &middot; Folk &middot; Roma</p>
+            <p class="canvas-tag mono">Cantautorato &middot; Indie-pop</p>
             <h2>N&Ugrave;MA</h2>
-            <p>Canzone d'autore, strada e una band costruita intorno alla parola.</p>
+            <p>Storie di provincia e ironia quotidiana, dalle poesie in dialetto al palco. Dal vivo con i numeri a Caso, in sei.</p>
           </div>
         </a>
 
         <a class="canvas-card canvas-quattordici" href="#quattordici" aria-label="Vai a Quattordici">
           <span class="canvas-no mono">02</span>
           <div class="canvas-bottom">
-            <p class="canvas-tag mono">Pop &middot; Elettronica</p>
+            <p class="canvas-tag mono">Synth-pop &middot; Drum’n’bass</p>
             <h2>QUATTORDICI</h2>
-            <p><strong>Punto Critico</strong>: canzoni emotive, synth e movimento.</p>
+            <p><strong>Punto Critico</strong>: gli stati dell’acqua raccontano il cambiamento. Trio elettronico e coreografie dal vivo.</p>
           </div>
         </a>
 
         <a class="canvas-card canvas-marco" href="#marco-russo" aria-label="Vai a Marco Russo">
           <span class="canvas-no mono">03</span>
           <div class="canvas-bottom">
-            <p class="canvas-tag mono">Cantautorato &middot; Elettronica</p>
+            <p class="canvas-tag mono">Elettronica &middot; Mediterraneo</p>
             <h2>MARCO RUSSO</h2>
-            <p><strong>Souk</strong>: viaggio, suoni reali, ritmo e trasformazione.</p>
+            <p><strong>SOUK</strong>: voce, synth analogici e saz tra Sud Italia e Marrakech. Un live elettronico in solo o trio.</p>
           </div>
         </a>
       </div>
@@ -375,7 +375,7 @@
     </section>
 
     <div id="progetti">
-      <!-- PROJECT 01: text and original URL supplied by the site owner. -->
+      <!-- PROJECT 01: the original bw JPEG published in the gallery of https://www.numeriacaso.it/, preserved without recompression. -->
       <section class="project numa" id="numa" aria-labelledby="numa-title">
         <div class="wrap project-grid">
           <div class="project-info">
@@ -390,7 +390,7 @@
             </div>
           </div>
           <div class="artwork">
-            <img class="project-photo" src="./numa-foto.jpg" alt="NUMA, fotografia del gruppo" width="1600" height="1068" loading="lazy" decoding="async">
+            <img class="project-photo" src="./numa-ritratto-bn.jpg" alt="Nùma in bianco e nero, in piedi con un girasole" width="734" height="1100" loading="lazy" decoding="async">
           </div>
         </div>
       </section>
