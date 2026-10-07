@@ -112,14 +112,11 @@
     .art-small-disc { position: absolute; width: 18px; height: 18px; background: #20251f; right: 36px; top: 50%; border-radius: 50%; }
 
     /* QUATTORDICI */
-    .quattordici { background: #dd4b32; color: #10110d; --art-border: #9e3726; }
-    .quattordici .project-link:focus-visible { outline-color: #231d18; }
-    .quattordici .artwork { background: #e9654d; }
+    .quattordici { background: #211521; color: #f1eee7; }
+    .quattordici .project-link:focus-visible { outline-color: #f1eee7; }
+    .quattordici .artwork { background: transparent; border: 0; }
+    .quattordici-photo { display: block; width: 100%; height: auto; max-width: 567px; max-height: 640px; object-fit: contain; }
     .quattordici .project-domain, .quattordici .category, .quattordici .project-link:hover { opacity: 1; }
-    .quattordici .art-svg { opacity: .5; }
-    .quattordici-type { position: absolute; z-index: 2; font-size: clamp(230px, 31vw, 472px); font-weight: 800; line-height: .85; letter-spacing: -.15em; margin-left: -.14em; transform: rotate(-9deg); color: var(--paper); }
-    .quattordici-type.outline { color: transparent; -webkit-text-stroke: 1px #752517; transform: translate(25px, 23px) rotate(-9deg); z-index: 1; }
-    .quattordici .art-corner { color: #231d18; }
 
     /* MARCO RUSSO */
     .marco { background: #212124; color: #f1eee7; --art-border: #575657; }
@@ -141,15 +138,6 @@
         linear-gradient(rgba(32,37,31,.78), rgba(32,37,31,.78)),
         url("https://static.wixstatic.com/media/ec212d_d82dc4fc05374e838603897c9ad6c7d3~mv2.jpg/v1/fill/w_857%2Ch_545%2Cal_c%2Cq_85%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/N%C3%B9ma%20%26%20I%20Numeri%20a%20Caso_1.jpg");
       background-position: 58% 38%;
-    }
-    .quattordici {
-      color: #f1eee7;
-      background-image:
-        linear-gradient(rgba(31,15,31,.48), rgba(31,15,31,.48)),
-        url("./quattordici.jpg");
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center 52%;
     }
     .marco {
       background-image:
@@ -247,9 +235,8 @@
     }
     .canvas-card p:not(.canvas-tag) { margin-top: 10px; max-width: 28ch; font-size: 12px; line-height: 1.4; color: rgba(255,255,255,.86); }
     .canvas-numa { background-image: url("https://static.wixstatic.com/media/ec212d_d82dc4fc05374e838603897c9ad6c7d3~mv2.jpg/v1/fill/w_857%2Ch_545%2Cal_c%2Cq_85%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/N%C3%B9ma%20%26%20I%20Numeri%20a%20Caso_1.jpg"); background-size: cover; background-position: 50% 50%; }
-    .canvas-quattordici { background-image: linear-gradient(to top, rgba(0,0,0,.52) 0%, rgba(0,0,0,.10) 58%, rgba(0,0,0,0) 100%), url("./quattordici.jpg"); background-size: cover; background-position: center 52%; background-repeat: no-repeat; }
+    .canvas-quattordici { background-image: url("./quattordici-originale.jpg"); background-size: cover; background-position: center 52%; background-repeat: no-repeat; }
     .canvas-quattordici::before { display: none; }
-    .canvas-14 { position: absolute; right: -8px; top: 28px; z-index: 1; font-size: clamp(116px, 13vw, 208px); line-height: .78; letter-spacing: -.11em; font-weight: 800; color: rgba(255,255,255,.11); }
     .canvas-marco { background-image: url("https://primaveradeiteatri.it/primavera/wp-content/uploads/2026/05/Marco-Russo.jpg"); background-size: cover; background-position: center 34%; }
     .hero-editorial .project-index { grid-column: 1 / -1; margin-top: 28px; }
 
@@ -325,7 +312,7 @@
       .project-link { margin-top: 15px; font-size: 12px; min-width: 210px; gap: 55px; padding-block: 13px; }
       .artwork { margin: 30px 0 0; aspect-ratio: 1.12; width: 100%; }
       .numa-type { font-size: clamp(250px, 68vw, 440px); }
-      .quattordici-type { font-size: clamp(260px, 77vw, 495px); }
+      .quattordici .artwork { aspect-ratio: auto; }
       .marco-type { font-size: clamp(193px, 48vw, 350px); }
       .art-corner { font-size: 9px; }
       .art-corner.top-left { left: 15px; top: 16px; }
@@ -418,7 +405,6 @@
 
         <a class="canvas-card canvas-quattordici" href="#quattordici" aria-label="Vai a Quattordici">
           <span class="canvas-no mono">02</span>
-          <span class="canvas-14" aria-hidden="true">14</span>
           <div class="canvas-bottom">
             <p class="canvas-tag mono">Pop &middot; Elettronica</p>
             <h2>QUATTORDICI</h2>
@@ -472,7 +458,7 @@
         </div>
       </section>
 
-      <!-- PROJECT 02. Decorative numerals are not an official artist logo. -->
+      <!-- PROJECT 02. Original JPEG from the q-photo image on https://www.quattordici.wtf/; preserved without resizing or recompression. -->
       <section class="project quattordici" id="quattordici" aria-labelledby="quattordici-title">
         <div class="wrap project-grid">
           <div class="project-info">
@@ -486,15 +472,8 @@
               <button class="interest-button" type="button" data-artist="QUATTORDICI">Mi interessa</button>
             </div>
           </div>
-          <div class="artwork" aria-hidden="true">
-            <span class="art-corner top-left">DR / 02</span><span class="art-corner top-right">QUATTORDICI</span>
-            <svg class="art-svg" viewBox="0 0 600 500" preserveAspectRatio="xMidYMid slice" focusable="false">
-              <defs><pattern id="q-grid" width="42" height="42" patternUnits="userSpaceOnUse"><path d="M42 0H0v42" fill="none" stroke="#91301f" stroke-width=".7"/></pattern></defs>
-              <rect width="600" height="500" fill="url(#q-grid)"/><circle cx="300" cy="250" r="192" fill="none" stroke="#772a1d" stroke-width="1"/>
-              <path d="M0 0 600 500M600 0 0 500" fill="none" stroke="#772a1d" stroke-width=".7"/>
-            </svg>
-            <span class="quattordici-type outline">14</span><span class="quattordici-type">14</span>
-            <span class="art-corner bottom-left">DISCOGRAFICA ROMANA</span><span class="art-corner bottom-right">02</span>
+          <div class="artwork">
+            <img class="quattordici-photo" src="./quattordici-originale.jpg" alt="Quattordici, fotografia promozionale di Punto Critico" width="567" height="850" loading="lazy" decoding="async">
           </div>
         </div>
       </section>
